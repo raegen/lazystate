@@ -6,7 +6,10 @@
   "repository": "https://github.com/raegen/lazystate.git",
   "files": [
     "dist",
-    "src"
+    "src",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vite.config.ts"
   ],
   "main": "./dist/lazystate.umd.js",
   "module": "./dist/lazystate.es.js",
