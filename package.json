@@ -5,7 +5,8 @@
   "private": false,
   "repository": "https://github.com/raegen/lazystate.git",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/lazystate.umd.js",
   "module": "./dist/lazystate.es.js",
