@@ -1,7 +1,8 @@
 {
-  "name": "lazystate",
+  "name": "@raegen/lazystate",
   "version": "0.0.1",
   "description": "LazyState",
+  "private": false,
   "repository": "https://github.com/raegen/lazystate.git",
   "files": [
     "dist"
