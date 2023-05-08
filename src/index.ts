@@ -1,14 +1,7 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, SetStateAction } from 'react';
 
 const createProxy = <T>(value: T, onTrap: (...path: PropertyKey[]) => void): T => {
   switch (typeof value) {
-    case 'function':
-      return new Proxy(value as Function, {
-        apply(target, thisArg, argArray) {
-          onTrap();
-          return target.apply(thisArg, argArray);
-        },
-      }) as T;
     case 'object':
       return new Proxy(value as object, {
         get(target, key) {
@@ -53,7 +46,9 @@ export const useLazyState = <T extends object>(initialState: T = {} as T) => {
     [state],
   );
 
-  const setState = useCallback((nextState: T) => {
+  const setState = useCallback((_nextState: SetStateAction<T>) => {
+    const nextState = typeof _nextState === 'function' ? _nextState(stateRef.current) : _nextState;
+    
     if ([...subStates.values()].some((isEqual) => !isEqual(stateRef.current, nextState))) {
       setShallow(nextState);
     }
