@@ -9,11 +9,12 @@
     "src",
     "tsconfig.json",
     "tsconfig.node.json",
-    "vite.config.ts"
+    "vite.config.ts",
+    "index.d.ts"
   ],
   "main": "./dist/lazystate.umd.js",
   "module": "./dist/lazystate.es.js",
-  "types": "./src/index.ts",
+  "types": "./index.d.ts",
   "exports": {
     "import": "./dist/lazystate.es.js",
     "require": "./dist/lazystate.umd.js"
